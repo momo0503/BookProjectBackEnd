@@ -9,5 +9,6 @@ public interface CatalogRepository extends CrudRepository<CatalogEntity, Long> {
 
     @Transactional
     void deleteByproductId(String productId);
+
 }
 

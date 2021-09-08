@@ -14,4 +14,11 @@ public interface CatalogService {
     CatalogEntity getCatalog(String productId);
 
     void deleteCatalog(String productId);
+
+
+    /* 카탈로그(상품) 수정 관련*/
+    CatalogDto getCatalogByProductId(String productId);
+    CatalogDto updateByProductId(CatalogDto catalogDto, CatalogDto catalogDetails);
+
+
 }

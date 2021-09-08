@@ -4,6 +4,7 @@ import com.example.catalogservice.dto.CatalogDto;
 import com.example.catalogservice.jpa.CatalogEntity;
 import com.example.catalogservice.service.CatalogService;
 import com.example.catalogservice.vo.RequestCreateCatalog;
+import com.example.catalogservice.vo.RequestUpdateCatalog;
 import com.example.catalogservice.vo.ResponseCatalog;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -36,6 +37,7 @@ public class CatalogController {
                 env.getProperty("local.server.port"));
     }
 
+    /* 상품 전체 목록*/
     @GetMapping("/catalogs")
     public ResponseEntity<List<ResponseCatalog>> getCatalogs() {
         Iterable<CatalogEntity> catalogList = catalogService.getAllCatalogs();
@@ -101,7 +103,7 @@ public class CatalogController {
 //            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
 //        }
 //    }
-
+    /*상품 등록 */
     @PostMapping("/catalogs")
     public ResponseEntity<ResponseCatalog> createCatalog(@RequestBody RequestCreateCatalog catalog){
         log.info("Before add catalog data");
@@ -120,13 +122,27 @@ public class CatalogController {
 
     }
 
-
+     /*상품 삭제*/
     @DeleteMapping("/catalogs/{productId}")
     public ResponseEntity<String> deleteCatalog(@PathVariable("productId") String productId){
 
         String msg = "Done";
         catalogService.deleteCatalog(productId);
         return ResponseEntity.status(HttpStatus.OK).body(msg);
+    }
+
+
+     /*상품 수정*/
+    @PutMapping("/catalogs/{productId}")
+    public void updateCatalog(@PathVariable("productId") String productId , @RequestBody RequestUpdateCatalog product){
+        ModelMapper mapper = new ModelMapper();
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        CatalogDto catalogDetails = mapper.map(product, CatalogDto.class);
+
+        CatalogDto catalogDto = catalogService.getCatalogByProductId(productId);
+
+        catalogService.updateByProductId(catalogDto, catalogDetails);
+
     }
 
 }
