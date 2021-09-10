@@ -6,6 +6,7 @@ import com.example.cartservice.entity.CartEntity;
 import com.example.cartservice.service.CartService;
 import com.example.cartservice.vo.RequestCart;
 import com.example.cartservice.vo.ResponseCart;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -39,6 +40,7 @@ public class CartController {
         return String.format("잘 작동됩니다.");
     }
 
+    @Operation(summary = "전체카트조회", description = "hello api example")
     @GetMapping("/carts")
     public ResponseEntity<List<ResponseCart>> getCarts() {
         Iterable<CartEntity> cartList = cartService.getAllCarts();
@@ -79,32 +81,32 @@ public class CartController {
 
     }
 
-    @PostMapping("/{userId}/carts")
-    public ResponseEntity<ResponseCart> createOrder(@PathVariable("userId") String userId,
-                                                    @RequestBody RequestCart cartDetails) {
-        log.info("Before add orders data");
-
-            ModelMapper mapper = new ModelMapper();
-            mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-
-            CartDto cartDto = mapper.map(cartDetails, CartDto.class);
-            cartDto.setUserId(userId);
-
-            cartService.createCart(cartDto); //이걸쓴건지
-
-           ResponseCart responseCart = mapper.map(cartDto, ResponseCart.class);
-            return ResponseEntity.status(HttpStatus.CREATED).body(responseCart);
-
-    }
-
-    /*장바구니 삭제*/
-    @DeleteMapping("/{userId}/carts")
-    public ResponseEntity<String> deleteCatalog(@PathVariable("userId") String userId){
-
-        String msg = "Done";
-        cartService.deleteCart(userId);
-        return ResponseEntity.status(HttpStatus.OK).body(msg);
-    }
+//    @PostMapping("/{userId}/carts")
+//    public ResponseEntity<ResponseCart> createOrder(@PathVariable("userId") String userId,
+//                                                    @RequestBody RequestCart cartDetails) {
+//        log.info("Before add orders data");
+//
+//            ModelMapper mapper = new ModelMapper();
+//            mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+//
+//            CartDto cartDto = mapper.map(cartDetails, CartDto.class);
+//            cartDto.setUserId(userId);
+//
+//            cartService.createCart(cartDto); //이걸쓴건지
+//
+//           ResponseCart responseCart = mapper.map(cartDto, ResponseCart.class);
+//            return ResponseEntity.status(HttpStatus.CREATED).body(responseCart);
+//
+//    }
+//
+//    /*장바구니 삭제*/
+//    @DeleteMapping("/{userId}/carts")
+//    public ResponseEntity<String> deleteCatalog(@PathVariable("userId") String userId){
+//
+//        String msg = "Done";
+//        cartService.deleteCart(userId);
+//        return ResponseEntity.status(HttpStatus.OK).body(msg);
+//    }
 
 //    /*장바구니 수정*/
 //    @PutMapping("/{userId}/carts}")
