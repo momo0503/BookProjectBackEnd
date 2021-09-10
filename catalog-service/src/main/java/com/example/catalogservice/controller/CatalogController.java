@@ -50,6 +50,7 @@ public class CatalogController {
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
+    /* 상품 상세보기 */
     @GetMapping("/catalogs/{productId}")
     public ResponseEntity<ResponseCatalog> getCatalog(@PathVariable String productId) {
         log.info("Before retrieve catalogs data");
@@ -64,6 +65,20 @@ public class CatalogController {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
     }
+
+    /* 날짜별 검색 */
+    @GetMapping("/catalogs/{startDate}/{endDate}")
+    public ResponseEntity<List<ResponseCatalog>> getCatalogsBetween(@PathVariable String startDate, @PathVariable String endDate){
+
+        Iterable<CatalogEntity> catalogList = catalogService.getByCatalogsBetween(startDate, endDate);
+        List<ResponseCatalog> result = new ArrayList<>();
+        catalogList.forEach(v -> {
+            result.add(new ModelMapper().map(v, ResponseCatalog.class));
+        });
+
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+
 //    @PostMapping("/{userId}/orders")
 //    public ResponseEntity<ResponseOrder> createOrder(@PathVariable("userId") String userId,
 //                                                     @RequestBody RequestOrder orderDetails) {
