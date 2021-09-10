@@ -3,6 +3,8 @@ package com.example.catalogservice.service;
 import com.example.catalogservice.dto.CatalogDto;
 import com.example.catalogservice.jpa.CatalogEntity;
 
+import java.util.Date;
+
 public interface CatalogService {
 
 
@@ -12,7 +14,7 @@ public interface CatalogService {
     Iterable<CatalogEntity> getAllCatalogs();
 
     CatalogEntity getCatalog(String productId);
-
+    Iterable<CatalogEntity> getByCatalogsBetween(String start, String end);
     void deleteCatalog(String productId);
 
 

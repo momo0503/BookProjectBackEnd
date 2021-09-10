@@ -11,6 +11,7 @@ import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -33,7 +34,6 @@ public class CatalogServiceImpl implements CatalogService{
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         CatalogEntity catalogEntity = mapper.map(catalogDto, CatalogEntity.class);
 
-
         catalogRepository.save(catalogEntity);
 
         return null;
@@ -54,6 +54,10 @@ public class CatalogServiceImpl implements CatalogService{
         catalogRepository.deleteByproductId(productId);
     }
 
+    @Override
+    public Iterable<CatalogEntity> getByCatalogsBetween(String start, String end){
+        return catalogRepository.findByCreatedAtBetween(start, end);
+    }
 
     /* 카탈로그(상품) 수정관련 */
     @Override

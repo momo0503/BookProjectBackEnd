@@ -17,9 +17,9 @@ spring:
       settings:
         web-allow-others: true
       path: /h2-console
-#  jpa:
-#    hibernate:
-#      ddl-auto: update
+  jpa:
+    hibernate:
+      ddl-auto: update
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://localhost:3306/mydb
