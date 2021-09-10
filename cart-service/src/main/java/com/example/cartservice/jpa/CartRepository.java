@@ -11,6 +11,7 @@ public interface CartRepository extends CrudRepository<CartEntity, Long>{
     void deleteById(String userId);
 
     //CartEntity findByCartId(String userId);
+
     //CartEntity findByuserId(String userId);
     //Iterable<CartEntity> findByUserId(String userId);
 }
