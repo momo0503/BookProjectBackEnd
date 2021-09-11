@@ -1,2 +1,8 @@
-package com.example.catalogservice.vo;public class RequestProductNameCatalog {
+package com.example.catalogservice.vo;
+
+import lombok.Data;
+
+@Data
+public class RequestProductNameCatalog {
+    private String productName;
 }

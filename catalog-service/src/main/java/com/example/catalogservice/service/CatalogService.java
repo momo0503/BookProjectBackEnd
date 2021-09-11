@@ -15,6 +15,7 @@ public interface CatalogService {
 
     CatalogEntity getCatalog(String productId);
     Iterable<CatalogEntity> getByCatalogsBetween(String start, String end);
+    Iterable<CatalogEntity> getCatalogsByProductName(String name);
     void deleteCatalog(String productId);
 
 

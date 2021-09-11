@@ -8,6 +8,7 @@ import java.util.Date;
 public interface CatalogRepository extends CrudRepository<CatalogEntity, Long> {
     CatalogEntity findByProductId(String productId);
     Iterable<CatalogEntity> findByCreatedAtBetween(String start, String end);
+    Iterable<CatalogEntity> findByProductNameContains(String name);
     @Transactional
     void deleteByproductId(String productId);
 
