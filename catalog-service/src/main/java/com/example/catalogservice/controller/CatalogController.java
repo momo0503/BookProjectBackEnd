@@ -4,6 +4,7 @@ import com.example.catalogservice.dto.CatalogDto;
 import com.example.catalogservice.jpa.CatalogEntity;
 import com.example.catalogservice.service.CatalogService;
 import com.example.catalogservice.vo.RequestCreateCatalog;
+import com.example.catalogservice.vo.RequestProductNameCatalog;
 import com.example.catalogservice.vo.RequestUpdateCatalog;
 import com.example.catalogservice.vo.ResponseCatalog;
 import lombok.extern.slf4j.Slf4j;
@@ -66,7 +67,7 @@ public class CatalogController {
         }
     }
 
-    /* 날짜별 검색 */
+    /* 날짜별 검색 => 추후에 다시 도전 */
     @GetMapping("/catalogs/{startDate}/{endDate}")
     public ResponseEntity<List<ResponseCatalog>> getCatalogsBetween(@PathVariable String startDate, @PathVariable String endDate){
 
@@ -77,6 +78,23 @@ public class CatalogController {
         });
 
         return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+
+    @PostMapping("/catalogs/search")
+    public ResponseEntity<List<ResponseCatalog>> getCatalogsByProductName(@RequestBody RequestProductNameCatalog catalog){
+
+        ModelMapper mapper = new ModelMapper();
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        CatalogDto catalogDto = mapper.map(catalog, CatalogDto.class);
+        log.info("밑 부분에 설명");
+        log.info(catalogDto.getProductName());
+        Iterable<CatalogEntity> catalogList = catalogService.getCatalogsByProductName(catalogDto.getProductName());
+        List<ResponseCatalog> result = new ArrayList<>();
+        catalogList.forEach(v -> {
+            result.add(new ModelMapper().map(v, ResponseCatalog.class));
+        });
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
 
 //    @PostMapping("/{userId}/orders")

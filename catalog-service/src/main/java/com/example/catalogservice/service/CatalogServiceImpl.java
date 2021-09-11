@@ -59,6 +59,11 @@ public class CatalogServiceImpl implements CatalogService{
         return catalogRepository.findByCreatedAtBetween(start, end);
     }
 
+    @Override
+    public Iterable<CatalogEntity> getCatalogsByProductName(String name){
+        return catalogRepository.findByProductNameContains(name);
+    }
+
     /* 카탈로그(상품) 수정관련 */
     @Override
     public CatalogDto getCatalogByProductId(String productId) {
