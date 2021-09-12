@@ -52,4 +52,24 @@ public class OrderServiceImpl implements OrderService {
     public Iterable<OrderEntity> getAllOrders() {
         return orderRepository.findAll();
     }
+
+    @Override
+    public OrderDto updateByOrderId(OrderDto orderDto, OrderDto orderDetails) {
+
+        OrderEntity orderEntity = orderRepository.findByOrderId(orderDto.getOrderId());
+        ModelMapper mapper = new ModelMapper();
+        OrderDto orderUpdateDto = mapper.map(orderEntity, OrderDto.class);
+
+        orderUpdateDto.setStatusCode(orderDetails.getStatusCode());
+
+        ModelMapper orderMapper = new ModelMapper();
+        orderMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        OrderEntity orderUpdateEntity = orderMapper.map(orderUpdateDto, OrderEntity.class);
+
+        orderUpdateEntity.setId(orderEntity.getId());
+        //orderUpdateEntity.setStatusCode(orderEntity.getStatusCode());
+        orderRepository.save(orderUpdateEntity);
+
+        return null;
+    }
 }

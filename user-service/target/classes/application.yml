@@ -13,21 +13,12 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-<<<<<<< Updated upstream
-    h2:
-    console:
-      enabled: true
-      settings:
-        web-allow-others: true
-      path: /h2-console
-=======
 #    h2:
 #    console:
 #      enabled: true
 #      settings:
 #        web-allow-others: true
 #      path: /h2-console
->>>>>>> Stashed changes
 #  datasource:
 #    driver-class-name: org.h2.Driver
 #    url: jdbc:h2:mem:testdb
@@ -59,7 +50,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: info,refresh,health,beans,busrefresh
+        include: refresh, health, beans, httptrace, info, busrefresh
 
 logging:
   level:

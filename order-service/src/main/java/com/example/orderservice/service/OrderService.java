@@ -10,4 +10,5 @@ public interface OrderService {
     Iterable<OrderEntity> getOrdersByUserId(String userId);
 
     Iterable<OrderEntity> getAllOrders();
+    OrderDto updateByOrderId(OrderDto orderDto, OrderDto orderDetails);
 }

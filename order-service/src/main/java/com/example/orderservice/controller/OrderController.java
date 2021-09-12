@@ -7,6 +7,7 @@ import com.example.orderservice.mq.KafkaProducer;
 import com.example.orderservice.mq.OrderProducer;
 import com.example.orderservice.service.OrderService;
 import com.example.orderservice.vo.RequestOrder;
+import com.example.orderservice.vo.RequestUpdateOrder;
 import com.example.orderservice.vo.ResponseCatalog;
 import com.example.orderservice.vo.ResponseOrder;
 import lombok.extern.slf4j.Slf4j;
@@ -134,6 +135,20 @@ public class OrderController {
 
         log.info("After retrieve ALL orders data");
         return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+
+    @PutMapping("/{orderId}/orders")
+    public void updateCart(@PathVariable("orderId") String orderId , @RequestBody RequestUpdateOrder order){
+        log.info("orders statusCode"+ order.getStatusCode());
+
+        ModelMapper mapper = new ModelMapper();
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        OrderDto orderDetails = mapper.map(order, OrderDto.class);
+
+        OrderDto orderDto = orderService.getOrderByOrderId(orderId);
+
+        orderService.updateByOrderId(orderDto, orderDetails);
+
     }
 
 
