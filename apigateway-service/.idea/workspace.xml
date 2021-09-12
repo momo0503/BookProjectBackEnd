@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c26cd99c-e904-4760-a2f8-aef091afd488" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../catalog-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../catalog-service/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../config-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../config-service/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../discovery-service/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../discovery-service/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../order-service/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../order-service/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-service/src/main/java/com/example/userservice/security/WebSecurity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/java/com/example/userservice/security/WebSecurity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-service/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-service/target/classes/com/example/userservice/security/WebSecurity.class" beforeDir="false" afterPath="$PROJECT_DIR$/../user-service/target/classes/com/example/userservice/security/WebSecurity.class" afterDir="false" />
-    </list>
+    <list default="true" id="c26cd99c-e904-4760-a2f8-aef091afd488" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,6 +55,7 @@
       <workItem from="1631379705069" duration="388000" />
       <workItem from="1631426017114" duration="455000" />
       <workItem from="1631427713315" duration="179000" />
+      <workItem from="1631429133256" duration="12000" />
     </task>
     <servers />
   </component>

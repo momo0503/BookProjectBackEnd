@@ -2,6 +2,9 @@ package com.example.orderservice.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
@@ -23,9 +26,22 @@ swagger 버전 3.0.0을 사용하라 적혀있음
 //
 //    private static final ApiInfo DEFAULT_API_INFO = new ApiInfo("API Title", "My User management REST API service",
 //            "1.0","run:tos",DEFAULT_CONTACT,"Apache","http://www.apache.rog/licenses");
-    @Bean
-    public Docket api(){
-        return new Docket(DocumentationType.SWAGGER_2);
+@Bean
+public Docket api() {
+    return new Docket(DocumentationType.OAS_30)
+            .useDefaultResponseMessages(false)
+            .select()
+            .apis(RequestHandlerSelectors.basePackage("com.example.orderservice.controller"))
+            .paths(PathSelectors.any())
+            .build()
+            .apiInfo(apiInfo());
+}
 
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
+                .title("Order Document")
+                .description("Order config")
+                .version("1.0")
+                .build();
     }
 }
