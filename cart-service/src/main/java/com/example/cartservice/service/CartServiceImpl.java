@@ -50,7 +50,7 @@ public class CartServiceImpl implements CartService{
 
     @Override
     public void deleteCart(String userId) {
-        cartRepository.deleteById(userId);
+        cartRepository.deleteByUserId(userId);
     }
 
 //    /* 카트 수정 관련*/
