@@ -61,7 +61,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: info,refresh,health,beans,busrefresh
+        include: refresh, health, beans, httptrace, info, busrefresh
 
 logging:
   level:
