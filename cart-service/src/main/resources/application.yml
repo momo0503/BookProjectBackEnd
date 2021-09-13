@@ -1,5 +1,5 @@
 server:
-  port: 50005
+  port: 50004
   #address: 127.0.0.1
 
 spring:
@@ -44,7 +44,7 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultzone : http://localhost:8761/eureka
+      defaultZone : http://localhost:8761/eureka
   instance:
     instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
     #prefer-ip-address: true
