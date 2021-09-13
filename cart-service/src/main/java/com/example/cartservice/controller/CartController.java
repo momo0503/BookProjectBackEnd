@@ -101,7 +101,7 @@ public class CartController {
 
     /*장바구니 삭제*/
     @DeleteMapping("/{userId}/carts")
-    public ResponseEntity<String> deleteCatalog(@PathVariable("userId") String userId){
+    public ResponseEntity<String> deleteCart(@PathVariable("userId") String userId){
 
         String msg = "Done";
         cartService.deleteCart(userId);
