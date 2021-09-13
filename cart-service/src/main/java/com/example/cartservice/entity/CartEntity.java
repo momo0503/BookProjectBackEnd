@@ -17,15 +17,15 @@ public class CartEntity implements Serializable {
 
     @Column(nullable = false, length = 120, unique = true)
     private String productId;
-    @Column(nullable = false)
+    @Column(length = 120)
     private String productName;
-    @Column(nullable = false)
+    @Column(length = 120)
     private String userId;
-    @Column(nullable = false)
+    @Column(length = 120)
     private Integer stock;
-    @Column(nullable = false)
+    @Column(length = 120)
     private Integer unitPrice;
-    @Column(nullable = false)
+    @Column(length = 120)
     private String imageUrl;
 
     @Column(nullable = false, updatable = false, insertable = false)
