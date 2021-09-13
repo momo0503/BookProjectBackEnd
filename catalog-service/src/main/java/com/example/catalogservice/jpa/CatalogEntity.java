@@ -17,15 +17,15 @@ public class CatalogEntity implements Serializable {
 
     @Column(nullable = false, length = 120, unique = true)
     private String productId;
-    @Column(nullable = false)
+    @Column(length = 30)
     private String productName;
-    @Column(nullable = false)
+    @Column(length = 10)
     private Integer stock;
-    @Column(nullable = false)
+    @Column(length = 10)
     private Integer unitPrice;
-    @Column(nullable = true)
+    @Column(length = 120)
     private String image;
-    @Column(nullable = true)
+    @Column(length = 50)
     private String writer;
 
 
