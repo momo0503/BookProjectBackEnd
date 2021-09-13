@@ -81,32 +81,32 @@ public class CartController {
 
     }
 
-//    @PostMapping("/{userId}/carts")
-//    public ResponseEntity<ResponseCart> createOrder(@PathVariable("userId") String userId,
-//                                                    @RequestBody RequestCart cartDetails) {
-//        log.info("Before add orders data");
-//
-//            ModelMapper mapper = new ModelMapper();
-//            mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-//
-//            CartDto cartDto = mapper.map(cartDetails, CartDto.class);
-//            cartDto.setUserId(userId);
-//
-//            cartService.createCart(cartDto); //이걸쓴건지
-//
-//           ResponseCart responseCart = mapper.map(cartDto, ResponseCart.class);
-//            return ResponseEntity.status(HttpStatus.CREATED).body(responseCart);
-//
-//    }
-//
-//    /*장바구니 삭제*/
-//    @DeleteMapping("/{userId}/carts")
-//    public ResponseEntity<String> deleteCatalog(@PathVariable("userId") String userId){
-//
-//        String msg = "Done";
-//        cartService.deleteCart(userId);
-//        return ResponseEntity.status(HttpStatus.OK).body(msg);
-//    }
+    @PostMapping("/{userId}/carts")
+    public ResponseEntity<ResponseCart> createOrder(@PathVariable("userId") String userId,
+                                                    @RequestBody RequestCart cartDetails) {
+        log.info("Before add orders data");
+
+            ModelMapper mapper = new ModelMapper();
+            mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+
+            CartDto cartDto = mapper.map(cartDetails, CartDto.class);
+            cartDto.setUserId(userId);
+
+            cartService.createCart(cartDto); //이걸쓴건지
+
+           ResponseCart responseCart = mapper.map(cartDto, ResponseCart.class);
+            return ResponseEntity.status(HttpStatus.CREATED).body(responseCart);
+
+    }
+
+    /*장바구니 삭제*/
+    @DeleteMapping("/{userId}/carts")
+    public ResponseEntity<String> deleteCatalog(@PathVariable("userId") String userId){
+
+        String msg = "Done";
+        cartService.deleteCart(userId);
+        return ResponseEntity.status(HttpStatus.OK).body(msg);
+    }
 
 //    /*장바구니 수정*/
 //    @PutMapping("/{userId}/carts}")
