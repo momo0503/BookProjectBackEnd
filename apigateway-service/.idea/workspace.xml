@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c26cd99c-e904-4760-a2f8-aef091afd488" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cart-service/src/main/java/com/example/cartservice/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../cart-service/src/main/java/com/example/cartservice/controller/CartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cart-service/src/main/java/com/example/cartservice/entity/CartEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../cart-service/src/main/java/com/example/cartservice/entity/CartEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cart-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../cart-service/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +62,7 @@
       <workItem from="1631512209914" duration="386000" />
       <workItem from="1631513944432" duration="135000" />
       <workItem from="1631515600676" duration="92000" />
+      <workItem from="1631576105388" duration="61000" />
     </task>
     <servers />
   </component>
