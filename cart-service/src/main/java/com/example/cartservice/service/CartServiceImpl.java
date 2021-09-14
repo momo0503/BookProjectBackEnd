@@ -39,18 +39,20 @@ public class CartServiceImpl implements CartService{
 
     @Override
     public CartDto createCart(CartDto cartDto) {
+        cartDto.setOrderId(UUID.randomUUID().toString());
+        cartDto.setTotalPrice(cartDto.getUnitPrice()*cartDto.getQty());
         ModelMapper mapper = new ModelMapper();
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         CartEntity cartEntity = mapper.map(cartDto, CartEntity.class);
 
         cartRepository.save(cartEntity);
 
-        return null;
+        return cartDto;
     }
 
     @Override
-    public void deleteCart(String userId) {
-        cartRepository.deleteByUserId(userId);
+    public void deleteCart(String orderId) {
+        cartRepository.deleteByOrderId(orderId);
     }
 
 //    /* 카트 수정 관련*/

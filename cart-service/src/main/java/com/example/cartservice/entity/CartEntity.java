@@ -22,11 +22,15 @@ public class CartEntity implements Serializable {
     @Column(length = 120)
     private String userId;
     @Column(length = 120)
-    private Integer stock;
+    private Integer qty;
+    @Column(length = 120)
+    private Integer totalPrice;
     @Column(length = 120)
     private Integer unitPrice;
     @Column(length = 120)
     private String imageUrl;
+    @Column(length = 120, unique = true)
+    private String orderId;
 
     @Column(nullable = false, updatable = false, insertable = false)
     @ColumnDefault(value="CURRENT_TIMESTAMP")
