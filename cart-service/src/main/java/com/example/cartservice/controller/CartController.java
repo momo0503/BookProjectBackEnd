@@ -101,12 +101,12 @@ public class CartController {
     }
 
     /*장바구니 삭제*/
-    @DeleteMapping("/{orderId}/carts")
-    public ResponseEntity<String> deleteCart(@PathVariable("orderId") String orderId){
-        //Iterable<CartEntity> orderList = cartService.getCartsByUserId(userId);
+    @DeleteMapping("/{userId}/carts")
+    public ResponseEntity<String> deleteCart(@PathVariable("userId") String userId){
+
 
         String msg = "Done";
-        cartService.deleteCart(orderId);
+        cartService.deleteCart(userId);
         return ResponseEntity.status(HttpStatus.OK).body(msg);
     }
 
