@@ -8,7 +8,7 @@ import java.util.Date;
 public class RequestCart {
     private String productId;
     private String productName;
-//    private String userId;
+    private String userId;
     private String imageUrl;
     private Integer qty;
 //
