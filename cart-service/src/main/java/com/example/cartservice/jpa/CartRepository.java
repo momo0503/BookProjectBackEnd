@@ -8,7 +8,7 @@ public interface CartRepository extends CrudRepository<CartEntity, Long>{
     Iterable<CartEntity> findByUserId(String userId);
 
     @Transactional
-    void deleteByUserId(String userId);
+    void deleteByOrderId(String orderId);
 
     //CartEntity findByCartId(String userId);
 

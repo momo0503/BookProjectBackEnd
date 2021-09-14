@@ -6,6 +6,7 @@ import com.example.cartservice.entity.CartEntity;
 import com.example.cartservice.service.CartService;
 import com.example.cartservice.vo.RequestCart;
 import com.example.cartservice.vo.ResponseCart;
+import com.example.cartservice.vo.ResponseCartShow;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -82,8 +83,8 @@ public class CartController {
     }
 
     @PostMapping("/{userId}/carts")
-    public ResponseEntity<ResponseCart> createOrder(@PathVariable("userId") String userId,
-                                                    @RequestBody RequestCart cartDetails) {
+    public ResponseEntity<ResponseCartShow> createOrder(@PathVariable("userId") String userId,
+                                                        @RequestBody RequestCart cartDetails) {
         log.info("Before add orders data");
 
             ModelMapper mapper = new ModelMapper();
@@ -92,19 +93,20 @@ public class CartController {
             CartDto cartDto = mapper.map(cartDetails, CartDto.class);
             cartDto.setUserId(userId);
 
-            cartService.createCart(cartDto); //이걸쓴건지
+            cartDto=cartService.createCart(cartDto); //이걸쓴건지
 
-           ResponseCart responseCart = mapper.map(cartDto, ResponseCart.class);
+           ResponseCartShow responseCart = mapper.map(cartDto, ResponseCartShow.class);
             return ResponseEntity.status(HttpStatus.CREATED).body(responseCart);
 
     }
 
     /*장바구니 삭제*/
-    @DeleteMapping("/{userId}/carts")
-    public ResponseEntity<String> deleteCart(@PathVariable("userId") String userId){
+    @DeleteMapping("/{orderId}/carts")
+    public ResponseEntity<String> deleteCart(@PathVariable("orderId") String orderId){
+        //Iterable<CartEntity> orderList = cartService.getCartsByUserId(userId);
 
         String msg = "Done";
-        cartService.deleteCart(userId);
+        cartService.deleteCart(orderId);
         return ResponseEntity.status(HttpStatus.OK).body(msg);
     }
 
