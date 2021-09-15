@@ -56,3 +56,6 @@ management:
 logging:
   level:
     com.example.catalogservice: DEBUG
+
+msg:
+  kafkaip: 172.18.0.101:9092
