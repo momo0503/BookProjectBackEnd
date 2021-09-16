@@ -6,6 +6,7 @@ import com.example.userservice.service.UserService;
 import com.example.userservice.vo.RequestUpdateUser;
 import com.example.userservice.vo.RequestUser;
 import com.example.userservice.vo.ResponseUser;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/")
 public class UserController {
@@ -71,6 +73,7 @@ public class UserController {
             result.add(new ModelMapper().map(v, ResponseUser.class));
         });
 
+        log.info("gateway ip   "+ env.getProperty("gateway.ip"));
         return result;
     }
 
