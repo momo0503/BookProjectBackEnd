@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c26cd99c-e904-4760-a2f8-aef091afd488" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../catalog-service/src/main/java/com/example/catalogservice/controller/CatalogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../catalog-service/src/main/java/com/example/catalogservice/controller/CatalogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../catalog-service/src/main/java/com/example/catalogservice/jpa/CatalogRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../catalog-service/src/main/java/com/example/catalogservice/jpa/CatalogRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../catalog-service/src/main/java/com/example/catalogservice/service/CatalogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../catalog-service/src/main/java/com/example/catalogservice/service/CatalogService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../catalog-service/src/main/java/com/example/catalogservice/service/CatalogServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../catalog-service/src/main/java/com/example/catalogservice/service/CatalogServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../catalog-service/src/main/java/com/example/catalogservice/vo/ResponseCatalog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../catalog-service/src/main/java/com/example/catalogservice/vo/ResponseCatalog.java" afterDir="false" />
-    </list>
+    <list default="true" id="c26cd99c-e904-4760-a2f8-aef091afd488" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,7 +63,7 @@
       <workItem from="1631576105388" duration="61000" />
       <workItem from="1631646676658" duration="296000" />
       <workItem from="1631697052224" duration="1278000" />
-      <workItem from="1631977298713" duration="449000" />
+      <workItem from="1631977298713" duration="596000" />
     </task>
     <servers />
   </component>
