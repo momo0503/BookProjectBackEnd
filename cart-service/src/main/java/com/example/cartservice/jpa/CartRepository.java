@@ -10,6 +10,11 @@ public interface CartRepository extends CrudRepository<CartEntity, Long>{
     @Transactional
     void deleteByUserId(String userId);
 
+    @Transactional
+    void deleteByProductId(String productId);
+
+    void deleteByProductIdAndUserId(String productId, String userId);
+
     //CartEntity findByCartId(String userId);
 
     //CartEntity findByuserId(String userId);

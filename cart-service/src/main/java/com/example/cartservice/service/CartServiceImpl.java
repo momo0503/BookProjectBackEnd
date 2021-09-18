@@ -55,6 +55,11 @@ public class CartServiceImpl implements CartService{
         cartRepository.deleteByUserId(userId);
     }
 
+    @Override
+    public void deleteByProductIdAndUserId(String productId, String userId){
+        cartRepository.deleteByProductIdAndUserId(productId, userId);
+    }
+
 //    /* 카트 수정 관련*/
 ////    @Override
 //    public CartDto getCartByUserId(String userId) {

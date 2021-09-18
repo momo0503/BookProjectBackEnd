@@ -101,12 +101,10 @@ public class CartController {
     }
 
     /*장바구니 삭제*/
-    @DeleteMapping("/{userId}/carts")
-    public ResponseEntity<String> deleteCart(@PathVariable("userId") String userId){
-
-
-        String msg = "Done";
-        cartService.deleteCart(userId);
+    @DeleteMapping("/{userId}/carts/{productId}")
+    public ResponseEntity<String> deleteCart(@PathVariable("userId") String userId, @PathVariable("productId") String productId){
+        String msg = "삭제 완료!";
+        cartService.deleteByProductIdAndUserId(productId, userId);
         return ResponseEntity.status(HttpStatus.OK).body(msg);
     }
 
