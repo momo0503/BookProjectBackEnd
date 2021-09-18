@@ -64,6 +64,11 @@ public class CatalogServiceImpl implements CatalogService{
         return catalogRepository.findByProductNameContains(name);
     }
 
+    @Override
+    public Iterable<CatalogEntity> getCatalogsByWriter(String name){
+        return catalogRepository.findByWriterContains(name);
+    }
+
     /* 카탈로그(상품) 수정관련 */
     @Override
     public CatalogDto getCatalogByProductId(String productId) {

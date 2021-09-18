@@ -80,6 +80,7 @@ public class CatalogController {
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
+    // 상품 이르으로 검색
     @PostMapping("/catalogs/search")
     public ResponseEntity<List<ResponseCatalog>> getCatalogsByProductName(@RequestBody RequestProductNameCatalog catalog){
 
@@ -89,6 +90,23 @@ public class CatalogController {
         log.info("밑 부분에 설명");
         log.info(catalogDto.getProductName());
         Iterable<CatalogEntity> catalogList = catalogService.getCatalogsByProductName(catalogDto.getProductName());
+        List<ResponseCatalog> result = new ArrayList<>();
+        catalogList.forEach(v -> {
+            result.add(new ModelMapper().map(v, ResponseCatalog.class));
+        });
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(result);
+    }
+
+    @PostMapping("/catalogs/search/writer")
+    public ResponseEntity<List<ResponseCatalog>> getCatalogsByWriter(@RequestBody RequestProductNameCatalog catalog){
+
+        ModelMapper mapper = new ModelMapper();
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        CatalogDto catalogDto = mapper.map(catalog, CatalogDto.class);
+        log.info("밑 부분에 설명");
+        log.info(catalogDto.getProductName());
+        Iterable<CatalogEntity> catalogList = catalogService.getCatalogsByWriter(catalogDto.getWriter());
         List<ResponseCatalog> result = new ArrayList<>();
         catalogList.forEach(v -> {
             result.add(new ModelMapper().map(v, ResponseCatalog.class));
