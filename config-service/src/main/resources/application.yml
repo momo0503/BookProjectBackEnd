@@ -9,7 +9,7 @@ spring:
       server:
         git:
           #uri: file://C:\MSA_study_Git\Work\git-local-repo
-          uri: https://github.com/hariBoWoo/my-spring-cloud-config.git
+          uri: https://github.com/gusdn3477/my-spring-cloud-config-1
   #          uri: file://C:\Users\Admin\Desktop\jieun\tmax\tmax_cloud\git-local-repo
   #          username: park940313@naver.com
   #          password: [password]
