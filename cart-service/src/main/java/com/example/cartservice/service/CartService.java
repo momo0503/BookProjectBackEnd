@@ -12,8 +12,8 @@ public interface CartService {
 
     CartDto createCart(CartDto cartDto);
 
-    void deleteCart(String userId);
-    void deleteByProductIdAndUserId(String productId, String userId);
+    void deleteById(long id);
+//    void deleteByProductIdAndUserId(String productId, String userId);
 
 //    CartDto getCartByUserId(String userId);
 //

@@ -7,6 +7,7 @@ import java.util.Date;
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseCart {
+    private Long id;
     private String productId;
     private String userId;
     private String productName;
