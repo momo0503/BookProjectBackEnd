@@ -11,11 +11,7 @@ public class RequestCart {
     private String userId;
     private String imageUrl;
     private Integer qty;
-//
-//    private Integer stock;
     private Integer unitPrice;
-//    private Integer totalPrice;
-
 }
 
 

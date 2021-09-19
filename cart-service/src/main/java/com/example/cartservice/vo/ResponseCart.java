@@ -10,9 +10,9 @@ public class ResponseCart {
     private String productId;
     private String userId;
     private String productName;
+    private Integer qty;
     private Integer stock;
     private Integer unitPrice;
-    private Integer totalPrice;
     private String imageUrl;
     private Date CreatedAt;
 }
