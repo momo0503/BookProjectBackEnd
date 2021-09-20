@@ -80,7 +80,7 @@ public class CatalogController {
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
-    // 상품 이르으로 검색
+    // 상품 이름으로 검색
     @PostMapping("/catalogs/search")
     public ResponseEntity<List<ResponseCatalog>> getCatalogsByProductName(@RequestBody RequestProductNameCatalog catalog){
 
