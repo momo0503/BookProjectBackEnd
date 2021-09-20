@@ -14,7 +14,5 @@ public class ResponseOrder {
     private Integer totalPrice;
     private Date createdAt;
     private Integer statusCode;
-
     private String orderId;
-
 }
