@@ -65,7 +65,7 @@ public class UserController {
 
     /* 전체 사용자 목록 */
     @GetMapping("/users")
-    public List<ResponseUser> getUsers(HttpServletRequest request) {
+    public List<ResponseUser> getUsers() {
         Iterable<UserEntity> usersList = userService.getUserByAll();
         List<ResponseUser> result = new ArrayList<>();
 
@@ -77,7 +77,7 @@ public class UserController {
         return result;
     }
 
-    /* 사용자 상세 보기 (with 주문 목록) */
+    /* 사용자 상세 보기 (with 주문 목록) => 여기선 주문 목록이 나옴*/
     @GetMapping("/users/{userId}")
     public ResponseEntity<ResponseUser> getUser(@PathVariable("userId") String userId) {
         UserDto userDto = userService.getUserByUserId(userId);

@@ -110,7 +110,7 @@ public class UserServiceImpl implements UserService {
        // List<ResponseOrder> ordersList = orderServiceClient.getOrders(userId);
         List<ResponseOrder> ordersList = null;
         try {
-            ordersList = orderServiceClient.getOrders(userId);
+            ordersList = orderServiceClient.getOrders(userId); //feign client 사용부분 => 여기서 처리 후에 125번줄의 dto로 넣어줌
         } catch (FeignException ex) {
             log.error(ex.getMessage());
         }
