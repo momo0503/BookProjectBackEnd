@@ -16,6 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.ws.rs.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,15 +82,12 @@ public class CatalogController {
     }
 
     // 상품 이름으로 검색
-    @PostMapping("/catalogs/search")
-    public ResponseEntity<List<ResponseCatalog>> getCatalogsByProductName(@RequestBody RequestProductNameCatalog catalog){
+    @PostMapping("/catalogs/search/productname/{productName}")
+    public ResponseEntity<List<ResponseCatalog>> getCatalogsByProductName(@PathVariable String productName){
 
         ModelMapper mapper = new ModelMapper();
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-        CatalogDto catalogDto = mapper.map(catalog, CatalogDto.class);
-        log.info("밑 부분에 설명");
-        log.info(catalogDto.getProductName());
-        Iterable<CatalogEntity> catalogList = catalogService.getCatalogsByProductName(catalogDto.getProductName());
+        Iterable<CatalogEntity> catalogList = catalogService.getCatalogsByProductName(productName);
         List<ResponseCatalog> result = new ArrayList<>();
         catalogList.forEach(v -> {
             result.add(new ModelMapper().map(v, ResponseCatalog.class));
@@ -98,15 +96,12 @@ public class CatalogController {
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
 
-    @PostMapping("/catalogs/search/writer")
-    public ResponseEntity<List<ResponseCatalog>> getCatalogsByWriter(@RequestBody RequestProductNameCatalog catalog){
+    @PostMapping("/catalogs/search/writer/{writer}")
+    public ResponseEntity<List<ResponseCatalog>> getCatalogsByWriter(@PathVariable String writer){
 
         ModelMapper mapper = new ModelMapper();
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-        CatalogDto catalogDto = mapper.map(catalog, CatalogDto.class);
-        log.info("밑 부분에 설명");
-        log.info(catalogDto.getProductName());
-        Iterable<CatalogEntity> catalogList = catalogService.getCatalogsByWriter(catalogDto.getWriter());
+        Iterable<CatalogEntity> catalogList = catalogService.getCatalogsByWriter(writer);
         List<ResponseCatalog> result = new ArrayList<>();
         catalogList.forEach(v -> {
             result.add(new ModelMapper().map(v, ResponseCatalog.class));

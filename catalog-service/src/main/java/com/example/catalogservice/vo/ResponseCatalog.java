@@ -15,5 +15,4 @@ public class ResponseCatalog {
     private String image;
     private String writer;
     private Date createdAt;
-
 }
