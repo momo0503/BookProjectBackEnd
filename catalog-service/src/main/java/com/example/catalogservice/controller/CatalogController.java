@@ -82,7 +82,7 @@ public class CatalogController {
     }
 
     // 상품 이름으로 검색
-    @PostMapping("/catalogs/search/productname/{productName}")
+    @GetMapping("/catalogs/search/productname/{productName}")
     public ResponseEntity<List<ResponseCatalog>> getCatalogsByProductName(@PathVariable String productName){
 
         ModelMapper mapper = new ModelMapper();
@@ -96,7 +96,7 @@ public class CatalogController {
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
 
-    @PostMapping("/catalogs/search/writer/{writer}")
+    @GetMapping("/catalogs/search/writer/{writer}")
     public ResponseEntity<List<ResponseCatalog>> getCatalogsByWriter(@PathVariable String writer){
 
         ModelMapper mapper = new ModelMapper();
